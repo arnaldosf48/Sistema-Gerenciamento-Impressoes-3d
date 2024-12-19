@@ -75,7 +75,8 @@ O protótipo do sistema foi desenvolvido no Figma e apresenta:
     - Arquivo
 - TELA 7- Agenda das impressoras(Thiago)
     - Calendário
-
+- TELA 8- Meus Relatórios (Livia)
+- TELA 9- CRUD estoque(Thiago)
 
 Link para o protótipo [Usuario](https://www.figma.com/proto/PRsqPPyF5Lc6yoO5i8BI7H/Projeto-Integrador-2?page-id=2%3A2&node-id=12-80&p=f&viewport=502%2C101%2C0.12&t=6VW1OgGm0QOJmoQG-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=12%3A80&show-proto-sidebar=1)
 

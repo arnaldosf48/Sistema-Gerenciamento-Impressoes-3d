@@ -42,7 +42,7 @@ Este sistema tem como objetivo armazenar, organizar e gerenciar informações re
 
 - **Frontend**: ReactJS e Axios.
 - **Backend**: Node.js.
-- **Banco de Dados**: SQL.
+- **Banco de Dados**: MySQL.
 
 ---
 

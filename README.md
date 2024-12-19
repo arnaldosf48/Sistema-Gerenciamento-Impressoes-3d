@@ -77,7 +77,97 @@ O protótipo do sistema foi desenvolvido no Figma e apresenta:
     - Calendário
 
 
-Link para o protótipo: *(Adicionar link ao finalizar)*
+Link para o protótipo [Usuario](https://www.figma.com/proto/PRsqPPyF5Lc6yoO5i8BI7H/Projeto-Integrador-2?page-id=2%3A2&node-id=12-80&p=f&viewport=502%2C101%2C0.12&t=6VW1OgGm0QOJmoQG-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=12%3A80&show-proto-sidebar=1)
+
+Link para o protótipo [Administrador](https://www.figma.com/proto/PRsqPPyF5Lc6yoO5i8BI7H/Projeto-Integrador-2?page-id=55%3A2&node-id=85-1817&p=f&viewport=502%2C233%2C0.06&t=wVOuXSw2RZBPLefN-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=85%3A1817 )
+
+---
+
+
+## Diagrama de Classes 
+
+### 1. Projeto
+
+**Atributos:**
+- `idProjeto`: Identificador único do projeto.
+- `nome`: Nome do projeto de impressão.
+- `descricao`: Descrição detalhada do projeto.
+- `dataCriacao`: Data de criação do projeto.
+- `responsavel`: Nome do responsável pelo projeto.
+
+**Métodos:**
+- `salvarProjeto()`: Salva as informações de um projeto no sistema.
+- `visualizarProjeto()`: Exibe as informações detalhadas do projeto.
+
+
+### 2. Usuario
+
+**Atributos:**
+- `idUsuario`: Identificador único do usuário.
+- `nome`: Nome do usuário.
+- `email`: Endereço de e-mail do usuário.
+- `senha`: Senha de acesso do usuário.
+- `tipoUsuario`: Tipo do usuário (comum ou administrador).
+
+**Métodos:**
+- `login()`: Realiza o login do usuário no sistema.
+- `logout()`: Realiza o logout do usuário no sistema.
+
+
+### 3. Administrador
+
+**Métodos:**
+- `gerenciarUsuarios()`: Permite ao administrador adicionar, editar ou remover usuários.
+- `visualizarLogSistema()`: Exibe o log de eventos do sistema.
+- `gerenciarProjetos()`: Permite ao administrador gerenciar os projetos de impressão, como editar ou excluir.
+
+
+### 4. UsuarioComum
+
+**Métodos:**
+- `visualizarProjetos()`: Permite ao usuário comum visualizar os projetos disponíveis.
+- `visualizarHistorico()`: Exibe o histórico de impressões realizadas pelo usuário.
+- `editarPerfil()`: Permite que o usuário comum edite suas informações pessoais.
+
+### 5. Sistema
+
+**Atributos:**
+- `listaUsuarios`: Lista de todos os usuários registrados no sistema.
+- `listaProjetos`: Lista de todos os projetos de impressão registrados.
+- `listaNotificacoes`: Lista de todas as notificações geradas pelo sistema.
+- `statusSistema`: Indica o status atual do sistema (ex: "ativo", "inativo").
+- `usuarioAtual`: O usuário que está atualmente logado no sistema.
+
+**Métodos:**
+- `gerenciarUsuarios()`: Gerencia as operações relacionadas a usuários (adicionar, remover, editar).
+- `gerenciarProjetos()`: Gerencia as operações relacionadas aos projetos de impressão.
+- `gerenciarImpressoes()`: Gerencia as operações de impressão (iniciar, parar, verificar status).
+- `gerenciarNotificacoes()`: Gerencia as notificações (criar, visualizar, excluir).
+- `configurarSistema()`: Realiza configurações gerais do sistema.
+
+
+### 6. Impressao
+
+**Atributos:**
+- `idImpressao`: Identificador único da impressão.
+- `dataImpressao`: Data e hora em que a impressão foi realizada.
+- `status`: Status da impressão (ex: "em andamento", "concluída", "erro").
+- `descricao`: Descrição do processo de impressão ou do projeto impresso.
+
+
+### 7. Notificacao
+
+**Atributos:**
+- `idNotificacao`: Identificador único da notificação.
+- `mensagem`: Texto da notificação (ex: "Impressão concluída").
+- `tipoNotificacao`: Tipo da notificação (ex: "sucesso", "erro").
+- `lida`: Indica se a notificação foi lida (true ou false).
+
+**Métodos:**
+- `gerarNotificacao()`: Cria uma nova notificação com base em uma mensagem e tipo.
+- `exibirNotificacao()`: Exibe a notificação para o usuário.
+- `marcarComoLida()`: Marca a notificação como lida.
+- `obterNotificacao()`: Retorna uma notificação com base no seu identificador.
 
 ---
 

@@ -171,7 +171,12 @@ Link para o protótipo [Administrador](https://www.figma.com/proto/PRsqPPyF5Lc6y
 - `obterNotificacao()`: Retorna uma notificação com base no seu identificador.
 
 ---
+## Equipe de Desenvolvimento
 
+- **Coordenador:** Prof. Arnaldo
+- **Equipe:** Arnaldo Filho, Francisco Ameson, Gustavo Abreu, Lívia Coelho, Olavo Levir e Thiago Sales.
+
+---
 ## Como Contribuir
 
 1. Faça um fork deste repositório.
@@ -182,9 +187,4 @@ Link para o protótipo [Administrador](https://www.figma.com/proto/PRsqPPyF5Lc6y
 
 ---
 
-## Equipe de Desenvolvimento
 
-- **Coordenador:** Prof. Arnaldo
-- **Equipe:** Arnaldo Filho, Francisco Ameson, Gustavo Abreu, Lívia Coelho, Olavo Levir e Thiago Sales.
-
----

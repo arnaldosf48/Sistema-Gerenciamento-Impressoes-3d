@@ -85,7 +85,7 @@ Link para o protótipo [Administrador](https://www.figma.com/proto/PRsqPPyF5Lc6y
 ---
 
 
-## Diagrama de Classes 
+## Diagrama de Classes (Arnaldo)
 
 ### 1. Projeto
 

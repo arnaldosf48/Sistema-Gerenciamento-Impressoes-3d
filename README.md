@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-Este sistema tem como objetivo armazenar, organizar e gerenciar informações relacionadas às impressões do projeto Lexim. Ele permite registrar dados sobre projetos, impressões realizadas, usuários responsáveis e status das operações, garantindo acessibilidade e eficiência no acompanhamento dessas informações.
+Este sistema tem como objetivo armazenar, organizar e gerenciar informações relacionadas às impressões do projeto Lexim. Ele permite registrar dados sobre projetos, impressões realizadas, usuários responsáveis e status do projeto, garantindo acessibilidade e eficiência no acompanhamento dessas informações.
 
 ---
 

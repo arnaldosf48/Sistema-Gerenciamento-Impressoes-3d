@@ -2,8 +2,17 @@ import { Wrapper } from "../assets/wrappers/LoginAndRegister";
 import Logo from "../assets/Logo.png";
 import FormRow from "../components/FormRow.jsx";
 import { FaLock, FaRegEnvelope } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setIsAuthenticated(true);
+    navigate("/");
+  };
+
   return (
     <Wrapper>
       <div className="side">
@@ -22,7 +31,7 @@ const Login = () => {
       <div className="main">
         <h1>Acesse sua conta</h1>
         <p>Iniciar sessão</p>
-        <form className="form">
+        <form className="form" onSubmit={handleLogin}>
           <FormRow
             type="email"
             name="name"
@@ -36,9 +45,13 @@ const Login = () => {
             icon={<FaLock />}
           />
           <p>Esqueceu sua senha?</p>
-          <button type="submit" className="primary-button" style={{width:250,height:60,marginTop:30}}>
+          <button
+            type="submit"
+            className="primary-button"
+            style={{ width: 250, height: 60, marginTop: 30 }}
+          >
             Entrar
-          </button >
+          </button>
         </form>
       </div>
     </Wrapper>

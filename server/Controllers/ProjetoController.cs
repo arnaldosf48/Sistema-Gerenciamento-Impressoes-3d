@@ -19,14 +19,12 @@ namespace server.Controllers
             _context = context;
         }
 
-        //api/Projetos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Projeto>>> GetProjetos()
         {
             return await _context.Projetos.Include(p => p.Responsavel).Include(p => p.Impressoes).ToListAsync();
         }
 
-        //api/Projetos/id
         [HttpGet("{id}")]
         public async Task<ActionResult<Projeto>> GetProjeto(int id)
         {
@@ -40,7 +38,6 @@ namespace server.Controllers
             return projeto;
         }
 
-        // PUT: api/Projetos/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProjeto(int id, Projeto projeto)
         {
@@ -70,7 +67,6 @@ namespace server.Controllers
             return NoContent();
         }
 
-        // POST: api/Projetos
         [HttpPost]
         public async Task<ActionResult<Projeto>> PostProjeto(Projeto projeto)
         {
@@ -80,7 +76,6 @@ namespace server.Controllers
             return CreatedAtAction("GetProjeto", new { id = projeto.Id }, projeto);
         }
 
-        // DELETE: api/Projetos/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Projeto>> DeleteProjeto(int id)
         {

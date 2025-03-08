@@ -31,6 +31,14 @@ namespace server.Data{
 
             modelBuilder.Entity<Impressao>()
                 .HasCheckConstraint("CK_Impressao_Status", "status IN ('Em andamento', 'Concluído', 'Erro')");           
+            modelBuilder.Entity<Usuario>()
+                .Property(u => u.TipoUsuario)
+                .HasColumnName("tipousuario");
+
+            modelBuilder.Entity<Impressao>()
+                .Property(u => u.Status)
+                .HasColumnName("status");
+
         }
     }
 

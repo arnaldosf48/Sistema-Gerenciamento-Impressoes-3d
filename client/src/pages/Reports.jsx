@@ -1,42 +1,89 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+
+const reports = [
+  { name: "Projeto A", duration: "2h" },
+  { name: "Projeto B", duration: "1h" },
+  { name: "Projeto C", duration: "3h" },
+  { name: "Projeto D", duration: "1h" },
+];
 
 const Reports = () => {
-  const [reports, setReports] = useState([]);
   const navigate = useNavigate();
-  useEffect(() => {
-    const fetchReports = async () => {
-      try {
-        const response = await axios.get("https://localhost:5078/api/reports");
-        setReports(response);
-      } catch (error) {
-        console.log("erro:", error);
-      }
-    };
-    fetchReports();
-  }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [projectName, setProjectName] = useState("");
+  const [projectDuration, setProjectDuration] = useState("");
+
+  const handleAddProject = () => {
+    console.log("Projeto Adicionado:", { projectName, projectDuration });
+    setIsModalOpen(false);
+  };
 
   return (
     <Wrapper>
-      <div className="reports">
-        {reports.map((report, index) => (
-          <div className="card" key={index}>
-            <h3>{report.name}</h3>
-            <p>Duração: {report.duration}</p>
-          </div>
-        ))}
+      <div className="reportsDiv">
+        <div className="reports">
+          {reports.map((report, index) => (
+            <div className="card" key={index}>
+              <h3>{report.name}</h3>
+              <p>Duração: {report.duration}</p>
+            </div>
+          ))}
+        </div>
+        <button className="submit" onClick={() => setIsModalOpen(true)}>
+          Adicionar Projeto
+        </button>
       </div>
+
       <div className="side">
         <strong>
           Agradecemos por fazer <br />
           parte do nosso projeto!
         </strong>
-        <div className="button" onClick={() => navigate("/data")}>
-          Acesse seus dados
+        <div className="button" onClick={() => navigate("/stock")}>
+          Acessar estoque
         </div>
       </div>
+
+      {isModalOpen && (
+        <ModalOverlay>
+          <ModalContainer>
+            <h2>Adicionar Projeto</h2>
+            <form onSubmit={(e) => e.preventDefault()}>
+              <label>
+                Nome do Projeto:
+                <input
+                  type="text"
+                  value={projectName}
+                  onChange={(e) => setProjectName(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Duração do Projeto:
+                <input
+                  type="text"
+                  value={projectDuration}
+                  onChange={(e) => setProjectDuration(e.target.value)}
+                  required
+                />
+              </label>
+              <div className="modalButtons">
+                <button className="submit" onClick={handleAddProject}>
+                  Adicionar
+                </button>
+                <button
+                  className="submit"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </ModalContainer>
+        </ModalOverlay>
+      )}
     </Wrapper>
   );
 };
@@ -91,6 +138,68 @@ const Wrapper = styled.div`
   .card p {
     margin: 5px 0 0;
     color: #666;
+  }
+
+  .submit {
+    background-color: var(--primary-blue);
+    border: none;
+    padding: 15px;
+    color: #fff;
+    border-radius: 15px;
+    margin: 25px;
+  }
+
+  .submit:hover {
+    transition: all linear 0.3s;
+    background-color: #333;
+  }
+`;
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalContainer = styled.div`
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .modalButtons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
   }
 `;
 
